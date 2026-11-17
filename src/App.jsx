@@ -28,11 +28,13 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import SearchIcon from '@mui/icons-material/Search';
 import HomeIcon from '@mui/icons-material/Home';
+import SyncIcon from '@mui/icons-material/Sync';
 
 import { darkTheme } from './theme';
 import Materi01 from './Materi/01-komponen-dan-props';
 import Materi02 from './Materi/02-state-dan-props';
 import Materi03 from './Materi/03-event-handling';
+import Materi04 from './Materi/04-lifecycle-dan-effect';
 import Materi05 from './Materi/05-conditional-rendering';
 import Materi06 from './Materi/06-rendering-lists';
 import Materi07 from './Materi/07-forms';
@@ -67,6 +69,16 @@ const daftarMateri = [
     icon: <TouchAppIcon fontSize="medium" />,
     color: '#f59e0b',
     component: Materi03,
+  },
+  {
+    id: '04',
+    nama: '04 Lifecycle & Effect',
+    judul: 'Lifecycle & Effect',
+    deskripsi: 'Memahami siklus hidup Effect: useEffect, cleanup, array dependency, serta perbandingan lifecycle method class dengan hooks.',
+    tags: ['useEffect', 'Cleanup', 'Dependency'],
+    icon: <SyncIcon fontSize="medium" />,
+    color: '#f43f5e',
+    component: Materi04,
   },
   {
     id: '05',
