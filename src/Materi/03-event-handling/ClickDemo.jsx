@@ -1,7 +1,15 @@
 import { useState } from 'react';
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
+import Alert from '@mui/material/Alert';
+import Box from '@mui/material/Box';
 
 function Tombol({ onSmash, children }) {
-    return <button onClick={onSmash}>{children}</button>;
+    return (
+        <Button variant="contained" color="secondary" onClick={onSmash}>
+            {children}
+        </Button>
+    );
 }
 
 export default function ClickDemo() {
@@ -16,19 +24,29 @@ export default function ClickDemo() {
     }
 
     return (
-        <div>
-            <p>Log: {log}</p>
+        <Box>
+            <Alert severity="info" sx={{ mb: 2 }}>
+                <strong>Status Log:</strong> {log}
+            </Alert>
 
-            <button onClick={handleClick}>Handler bernama</button>
+            <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
+                <Button variant="outlined" onClick={handleClick}>
+                    Handler bernama
+                </Button>
 
-            <button onClick={() => setLog('Handler inline diklik')}>
-                Handler inline
-            </button>
+                <Button variant="outlined" color="primary" onClick={() => setLog('Handler inline diklik')}>
+                    Handler inline
+                </Button>
 
-            <button onClick={() => handleSapa('Andi')}>Sapa Andi</button>
-            <button onClick={() => handleSapa('Biru')}>Sapa Biru</button>
+                <Button variant="contained" onClick={() => handleSapa('Andi')}>
+                    Sapa Andi
+                </Button>
+                <Button variant="contained" color="info" onClick={() => handleSapa('Biru')}>
+                    Sapa Biru
+                </Button>
 
-            <Tombol onSmash={() => setLog('Smash!')}>Smash</Tombol>
-        </div>
+                <Tombol onSmash={() => setLog('💥 Smash!')}>Smash</Tombol>
+            </Stack>
+        </Box>
     );
 }

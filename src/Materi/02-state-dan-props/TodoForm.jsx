@@ -1,4 +1,8 @@
 import { useState } from "react";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import AddIcon from "@mui/icons-material/Add";
 
 export default function TodoForm({ onAdd }) {
     const [text, setText] = useState('');
@@ -8,16 +12,20 @@ export default function TodoForm({ onAdd }) {
         if (text.trim() === '') return;
         onAdd(text.trim());
         setText('');
-    };
+    }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input
+        <Box component="form" onSubmit={handleSubmit} sx={{ display: 'flex', gap: 1, my: 2 }}>
+            <TextField
                 value={text}
                 onChange={(e) => setText(e.target.value)}
-                placeholder="Tugas baru..."
+                placeholder="Tambah tugas baru..."
+                size="small"
+                fullWidth
             />
-            <button type="submit">Tambah</button>
-        </form>
-    )
+            <Button type="submit" variant="contained" startIcon={<AddIcon />} sx={{ whiteSpace: 'nowrap' }}>
+                Tambah
+            </Button>
+        </Box>
+    );
 }

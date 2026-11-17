@@ -1,5 +1,14 @@
 import { useState } from 'react';
 import { validasi } from './validasi';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
+import Alert from '@mui/material/Alert';
+import Typography from '@mui/material/Typography';
+import SendIcon from '@mui/icons-material/Send';
+import RestartAltIcon from '@mui/icons-material/RestartAlt';
 
 const awal = { email: '', password: '' };
 
@@ -33,46 +42,53 @@ export default function FormValidasi() {
         setTerkirim(null);
     }
 
-    const merah = { color: 'crimson', margin: '4px 0' };
-
     return (
-        <form onSubmit={handleSubmit} noValidate>
-            <div>
-                <label>
-                    Email:{' '}
-                    <input
+        <Card variant="outlined" sx={{ borderRadius: 2 }}>
+            <CardContent>
+                <Stack component="form" onSubmit={handleSubmit} noValidate spacing={2.5} sx={{ maxWidth: 450 }}>
+                    <TextField
+                        label="Email"
                         type="email"
                         name="email"
                         value={values.email}
                         onChange={handleChange}
                         onBlur={handleBlur}
+                        error={Boolean(touched.email && errors.email)}
+                        helperText={touched.email && errors.email}
+                        size="small"
+                        fullWidth
                     />
-                </label>
-                {touched.email && errors.email && <p style={merah}>{errors.email}</p>}
-            </div>
 
-            <div>
-                <label>
-                    Password:{' '}
-                    <input
+                    <TextField
+                        label="Password"
                         type="password"
                         name="password"
                         value={values.password}
                         onChange={handleChange}
                         onBlur={handleBlur}
+                        error={Boolean(touched.password && errors.password)}
+                        helperText={touched.password && errors.password}
+                        size="small"
+                        fullWidth
                     />
-                </label>
-                {touched.password && errors.password && (
-                    <p style={merah}>{errors.password}</p>
-                )}
-            </div>
 
-            <button type="submit">Kirim</button>
-            <button type="button" onClick={handleReset}>
-                Reset
-            </button>
+                    <Stack direction="row" spacing={1}>
+                        <Button type="submit" variant="contained" startIcon={<SendIcon />}>
+                            Kirim
+                        </Button>
+                        <Button type="button" variant="outlined" color="inherit" startIcon={<RestartAltIcon />} onClick={handleReset}>
+                            Reset
+                        </Button>
+                    </Stack>
 
-            {terkirim && <pre>{JSON.stringify(terkirim, null, 2)}</pre>}
-        </form>
+                    {terkirim && (
+                        <Alert severity="success" sx={{ mt: 2 }}>
+                            <Typography variant="subtitle2" fontWeight="bold">Data Berhasil Dikirim:</Typography>
+                            <pre style={{ margin: '4px 0 0', fontSize: '0.85rem' }}>{JSON.stringify(terkirim, null, 2)}</pre>
+                        </Alert>
+                    )}
+                </Stack>
+            </CardContent>
+        </Card>
     );
 }

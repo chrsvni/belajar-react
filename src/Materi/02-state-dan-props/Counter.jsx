@@ -1,34 +1,55 @@
 import { useState } from 'react';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
+import Chip from '@mui/material/Chip';
 
 export default function Counter({ start = 0 }) {
     const [count, setCount] = useState(start);
 
     return (
-        <div>
-            <p>Hitung: {count}</p>
+        <Card variant="outlined" sx={{ borderRadius: 2 }}>
+            <CardContent>
+                <Stack direction="row" alignItems="center" spacing={2} sx={{ mb: 2 }}>
+                    <Typography variant="body1">Nilai Hitung:</Typography>
+                    <Chip label={count} color="primary" sx={{ fontSize: '1.1rem', fontWeight: 'bold' }} />
+                </Stack>
 
-            <button onClick={() => setCount(count + 1)}>+1</button>
+                <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1}>
+                    <Button variant="contained" onClick={() => setCount(count + 1)}>
+                        +1
+                    </Button>
 
-            <button
-                onClick={() => {
-                    setCount(count + 1);
-                    setCount(count + 1);
-                    setCount(count + 1);
-                }}>
-                +3 (cara langsung)
-            </button>
+                    <Button
+                        variant="outlined"
+                        onClick={() => {
+                            setCount(count + 1);
+                            setCount(count + 1);
+                            setCount(count + 1);
+                        }}
+                    >
+                        +3 (cara langsung)
+                    </Button>
 
-            <button
-                onClick={() => {
-                    setCount((c) => c + 1);
-                    setCount((c) => c + 1);
-                    setCount((c) => c + 1);
-                }}
-            >
-                +3 (updater)
-            </button>
+                    <Button
+                        variant="outlined"
+                        color="secondary"
+                        onClick={() => {
+                            setCount((c) => c + 1);
+                            setCount((c) => c + 1);
+                            setCount((c) => c + 1);
+                        }}
+                    >
+                        +3 (updater)
+                    </Button>
 
-            <button onClick={() => setCount(start)}>Reset</button>
-        </div>
+                    <Button variant="text" color="error" onClick={() => setCount(start)}>
+                        Reset
+                    </Button>
+                </Stack>
+            </CardContent>
+        </Card>
     );
 }

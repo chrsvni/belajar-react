@@ -1,14 +1,18 @@
-export default function Card({ children }) {
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+
+export default function CustomCard({ children }) {
     return (
-        <div
-            style={{
-                border: '1px solid #888',
-                borderRadius: 8,
-                padding: 16,
-                margin: '16px 0',
+        <Card
+            elevation={2}
+            sx={{
+                my: 2,
+                borderRadius: 2,
+                border: '1px solid',
+                borderColor: 'divider',
             }}
         >
-            {children}
-        </div>
+            <CardContent>{children}</CardContent>
+        </Card>
     );
 }
