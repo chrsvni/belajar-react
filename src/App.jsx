@@ -38,6 +38,7 @@ import Materi04 from './Materi/04-lifecycle-dan-effect';
 import Materi05 from './Materi/05-conditional-rendering';
 import Materi06 from './Materi/06-rendering-lists';
 import Materi07 from './Materi/07-forms';
+import Materi08 from './Materi/08-react-router';
 
 const daftarMateri = [
   {
@@ -109,6 +110,16 @@ const daftarMateri = [
     icon: <DynamicFormIcon fontSize="medium" />,
     color: '#8b5cf6',
     component: Materi07,
+  },
+  {
+    id: '08',
+    nama: '08 React Router',
+    judul: 'React Router (v6+)',
+    deskripsi: 'Implementasi Client-Side Routing: BrowserRouter, Routes, Route, NavLink, Outlet, useParams, dan useNavigate.',
+    tags: ['Router', 'useParams', 'useNavigate'],
+    icon: <AltRouteIcon fontSize="medium" />,
+    color: '#8b5cf6',
+    component: Materi08,
   },
 ];
 
