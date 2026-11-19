@@ -29,6 +29,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import SearchIcon from '@mui/icons-material/Search'
 import HomeIcon from '@mui/icons-material/Home'
 import SyncIcon from '@mui/icons-material/Sync'
+import AccountTreeIcon from '@mui/icons-material/AccountTree'
 
 import { darkTheme } from './theme'
 import Materi01 from './Materi/01-komponen-dan-props'
@@ -39,6 +40,7 @@ import Materi05 from './Materi/05-conditional-rendering'
 import Materi06 from './Materi/06-rendering-lists'
 import Materi07 from './Materi/07-forms'
 import Materi08 from './Materi/08-react-router'
+import Materi09 from './Materi/09-context'
 
 const daftarMateri = [
   {
@@ -128,6 +130,17 @@ const daftarMateri = [
     icon: <AltRouteIcon fontSize="medium" />,
     color: '#8b5cf6',
     component: Materi08,
+  },
+  {
+    id: '09',
+    nama: '09 Context',
+    judul: 'Context',
+    deskripsi:
+      'Mengoper data ke komponen yang dalam tanpa prop drilling: createContext, useContext, dan provider, serta kapan sebaiknya tidak memakai context.',
+    tags: ['Context', 'useContext', 'Prop Drilling'],
+    icon: <AccountTreeIcon fontSize="medium" />,
+    color: '#14b8a6',
+    component: Materi09,
   },
 ]
 
