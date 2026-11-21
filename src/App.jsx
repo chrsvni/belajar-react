@@ -30,6 +30,8 @@ import SearchIcon from '@mui/icons-material/Search'
 import HomeIcon from '@mui/icons-material/Home'
 import SyncIcon from '@mui/icons-material/Sync'
 import AccountTreeIcon from '@mui/icons-material/AccountTree'
+import FunctionsIcon from '@mui/icons-material/Functions'
+import SpeedIcon from '@mui/icons-material/Speed'
 
 import { darkTheme } from './theme'
 import Materi01 from './Materi/01-komponen-dan-props'
@@ -41,6 +43,8 @@ import Materi06 from './Materi/06-rendering-lists'
 import Materi07 from './Materi/07-forms'
 import Materi08 from './Materi/08-react-router'
 import Materi09 from './Materi/09-context'
+import Materi10 from './Materi/10-reducer'
+import Materi11 from './Materi/11-use-callback'
 
 const daftarMateri = [
   {
@@ -141,6 +145,28 @@ const daftarMateri = [
     icon: <AccountTreeIcon fontSize="medium" />,
     color: '#14b8a6',
     component: Materi09,
+  },
+  {
+    id: '10',
+    nama: '10 Reducer',
+    judul: 'Reducer',
+    deskripsi:
+      'Memindahkan logika pembaruan state ke satu fungsi dengan useReducer: dispatch, action, dan perbandingannya dengan useState.',
+    tags: ['useReducer', 'dispatch', 'Action'],
+    icon: <FunctionsIcon fontSize="medium" />,
+    color: '#3b82f6',
+    component: Materi10,
+  },
+  {
+    id: '11',
+    nama: '11 useCallback',
+    judul: 'useCallback',
+    deskripsi:
+      'Meng-cache definisi fungsi antar render: memo, fungsi updater, dependency Effect, dan kapan memoisasi benar-benar diperlukan.',
+    tags: ['useCallback', 'memo', 'Optimasi'],
+    icon: <SpeedIcon fontSize="medium" />,
+    color: '#84cc16',
+    component: Materi11,
   },
 ]
 
