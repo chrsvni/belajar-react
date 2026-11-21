@@ -32,6 +32,7 @@ import SyncIcon from '@mui/icons-material/Sync'
 import AccountTreeIcon from '@mui/icons-material/AccountTree'
 import FunctionsIcon from '@mui/icons-material/Functions'
 import SpeedIcon from '@mui/icons-material/Speed'
+import ShieldIcon from '@mui/icons-material/Shield'
 
 import { darkTheme } from './theme'
 import Materi01 from './Materi/01-komponen-dan-props'
@@ -45,6 +46,7 @@ import Materi08 from './Materi/08-react-router'
 import Materi09 from './Materi/09-context'
 import Materi10 from './Materi/10-reducer'
 import Materi11 from './Materi/11-use-callback'
+import Materi12 from './Materi/12-error-boundary'
 
 const daftarMateri = [
   {
@@ -167,6 +169,17 @@ const daftarMateri = [
     icon: <SpeedIcon fontSize="medium" />,
     color: '#84cc16',
     component: Materi11,
+  },
+  {
+    id: '12',
+    nama: '12 Error Boundary + Lazy',
+    judul: 'Error Boundary + Lazy Loading',
+    deskripsi:
+      'Menangkap error saat rendering dan memuat komponen hanya saat dibutuhkan: ErrorBoundary, Suspense, dan lazy.',
+    tags: ['Error', 'Fallback', 'Lazy', 'Suspense'],
+    icon: <ShieldIcon fontSize="medium" />,
+    color: '#ef4444',
+    component: Materi12,
   },
 ]
 
