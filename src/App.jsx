@@ -33,6 +33,7 @@ import AccountTreeIcon from '@mui/icons-material/AccountTree'
 import FunctionsIcon from '@mui/icons-material/Functions'
 import SpeedIcon from '@mui/icons-material/Speed'
 import ShieldIcon from '@mui/icons-material/Shield'
+import ExtensionIcon from '@mui/icons-material/Extension'
 
 import { darkTheme } from './theme'
 import Materi01 from './Materi/01-komponen-dan-props'
@@ -47,6 +48,7 @@ import Materi09 from './Materi/09-context'
 import Materi10 from './Materi/10-reducer'
 import Materi11 from './Materi/11-use-callback'
 import Materi12 from './Materi/12-error-boundary'
+import Materi13 from './Materi/13-hoc'
 
 const daftarMateri = [
   {
@@ -180,6 +182,17 @@ const daftarMateri = [
     icon: <ShieldIcon fontSize="medium" />,
     color: '#ef4444',
     component: Materi12,
+  },
+  {
+    id: '13',
+    nama: '13 Higher-Order Components',
+    judul: 'Higher-Order Components',
+    deskripsi:
+      'Memakai ulang logika komponen dengan HOC dan custom hook: komposisi, konvensi, jebakan, dan perbandingannya.',
+    tags: ['HOC', 'Custom Hook', 'Komposisi'],
+    icon: <ExtensionIcon fontSize="medium" />,
+    color: '#d946ef',
+    component: Materi13,
   },
 ]
 
