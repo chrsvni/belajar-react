@@ -49,6 +49,7 @@ import Materi10 from './Materi/10-reducer'
 import Materi11 from './Materi/11-use-callback'
 import Materi12 from './Materi/12-error-boundary'
 import Materi13 from './Materi/13-hoc'
+import Materi14 from './Materi/14-optimasi-performa'
 
 const daftarMateri = [
   {
@@ -193,6 +194,17 @@ const daftarMateri = [
     icon: <ExtensionIcon fontSize="medium" />,
     color: '#d946ef',
     component: Materi13,
+  },
+  {
+    id: '14',
+    nama: '14 Performance Optimization',
+    judul: 'Performance Optimization',
+    deskripsi:
+      'Memoization (React.memo, useMemo, useCallback), code splitting, dan lazy loading untuk mengurangi kerja yang tidak perlu.',
+    tags: ['Memo', 'useMemo', 'useCallback', 'Lazy'],
+    icon: <SpeedIcon fontSize="medium" />,
+    color: '#f59e0b',
+    component: Materi14,
   },
 ]
 
