@@ -6,6 +6,11 @@ import Paper from '@mui/material/Paper'
 import TextField from '@mui/material/TextField'
 import MenuItem from '@mui/material/MenuItem'
 import Typography from '@mui/material/Typography'
+import List from '@mui/material/List'
+import ListItem from '@mui/material/ListItem'
+import ListItemText from '@mui/material/ListItemText'
+import Chip from '@mui/material/Chip'
+import Box from '@mui/material/Box'
 
 import { tasksReducer } from './tasksReducer'
 
@@ -24,47 +29,181 @@ export default function ReduceDemo() {
   return (
     <Card variant="outlined" sx={{ borderRadius: 2 }}>
       <CardContent>
-        <Stack spacing={2} sx={{ maxWidth: 550 }}>
-          <Paper variant="outlined" sx={{ p: 1.5 }}>
-            <Typography variant="caption" fontWeight="bold">
-              Daftar aksi (berurutan)
-            </Typography>
-            {daftarAksi.map((aksi, i) => (
+        <Stack spacing={2.5} sx={{ maxWidth: 550 }}>
+          {/* 1. DAFTAR AKSI (BERURUTAN) */}
+          <Paper variant="outlined" sx={{ p: 2 }}>
+            <Stack
+              direction="row"
+              justifyContent="space-between"
+              alignItems="center"
+              sx={{ mb: 1.5 }}
+            >
               <Typography
-                key={i}
-                variant="body2"
-                sx={{
-                  fontFamily: 'monospace',
-                  color: i < langkah ? 'text.primary' : 'text.disabled',
-                }}
+                variant="caption"
+                fontWeight="bold"
+                color="text.secondary"
               >
-                {i + 1}. {JSON.stringify(aksi)}
+                DAFTAR AKSI (BERURUTAN)
               </Typography>
-            ))}
+              <Chip
+                size="small"
+                variant="outlined"
+                color="info"
+                label={`${langkah} dari ${daftarAksi.length} dijalankan`}
+              />
+            </Stack>
+
+            <Stack spacing={1}>
+              {daftarAksi.map((aksi, i) => {
+                const isActive = i < langkah
+                const isAdded = aksi.type === 'added'
+
+                return (
+                  <Box
+                    key={i}
+                    sx={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      p: 1,
+                      px: 1.5,
+                      borderRadius: 1,
+                      bgcolor: 'action.hover',
+                      border: 1,
+                      borderColor: isActive ? 'primary.main' : 'divider',
+                      opacity: isActive ? 1 : 0.35,
+                      transition: 'all 0.2s ease',
+                    }}
+                  >
+                    <Stack direction="row" spacing={1.5} alignItems="center">
+                      <Typography
+                        variant="body2"
+                        fontWeight="bold"
+                        color={isActive ? 'text.primary' : 'text.disabled'}
+                        sx={{ width: 16 }}
+                      >
+                        {i + 1}.
+                      </Typography>
+
+                      <Chip
+                        size="small"
+                        color={isAdded ? 'success' : 'error'}
+                        label={isAdded ? '+ ADDED' : '- DELETED'}
+                        variant={isActive ? 'filled' : 'outlined'}
+                        sx={{
+                          height: 22,
+                          fontSize: '0.68rem',
+                          fontWeight: 700,
+                        }}
+                      />
+
+                      <Chip
+                        size="small"
+                        label={`#${aksi.id}`}
+                        variant="outlined"
+                        sx={{ height: 20, fontSize: '0.72rem' }}
+                      />
+
+                      <Typography
+                        variant="body2"
+                        color={isActive ? 'text.primary' : 'text.disabled'}
+                        fontWeight={isActive ? 500 : 400}
+                      >
+                        {isAdded ? aksi.text : `Hapus tugas #${aksi.id}`}
+                      </Typography>
+                    </Stack>
+                  </Box>
+                )
+              })}
+            </Stack>
           </Paper>
 
+          {/* 2. DROPDOWN LANGKAH */}
           <TextField
             select
             label="Jalankan sampai aksi ke-"
             size="small"
             value={langkah}
             onChange={(e) => setLangkah(Number(e.target.value))}
-            sx={{ maxWidth: 220 }}
+            sx={{ maxWidth: 240 }}
           >
             {[0, 1, 2, 3, 4].map((n) => (
               <MenuItem key={n} value={n}>
-                {n === 0 ? '0 (belum ada aksi)' : n}
+                {n === 0 ? '0 (belum ada aksi)' : `Aksi ke-${n}`}
               </MenuItem>
             ))}
           </TextField>
 
-          <Paper variant="outlined" sx={{ p: 1.5 }}>
-            <Typography variant="caption" fontWeight="bold">
-              State hasil reduce()
-            </Typography>
-            <pre style={{ margin: '6px 0 0', fontSize: '0.85rem' }}>
-              {JSON.stringify(stateAkhir, null, 2)}
-            </pre>
+          {/* 3. STATE HASIL REDUCE */}
+          <Paper variant="outlined" sx={{ p: 2 }}>
+            <Stack
+              direction="row"
+              justifyContent="space-between"
+              alignItems="center"
+              sx={{ mb: 1.5 }}
+            >
+              <Typography
+                variant="caption"
+                fontWeight="bold"
+                color="text.secondary"
+              >
+                STATE HASIL REDUCE()
+              </Typography>
+              <Chip
+                size="small"
+                variant="outlined"
+                color={stateAkhir.length > 0 ? 'primary' : 'default'}
+                label={`${stateAkhir.length} item aktif`}
+              />
+            </Stack>
+
+            {stateAkhir.length === 0 ? (
+              <Typography
+                variant="body2"
+                color="text.secondary"
+                sx={{ fontStyle: 'italic', py: 1 }}
+              >
+                State kosong: [] (belum ada tugas)
+              </Typography>
+            ) : (
+              <List dense disablePadding>
+                {stateAkhir.map((task) => (
+                  <ListItem
+                    key={task.id}
+                    sx={{
+                      bgcolor: 'action.hover',
+                      borderRadius: 1,
+                      mb: 1,
+                      border: 1,
+                      borderColor: 'divider',
+                      py: 1,
+                    }}
+                  >
+                    <ListItemText
+                      primary={
+                        <Stack direction="row" spacing={1} alignItems="center">
+                          <Chip
+                            size="small"
+                            label={`#${task.id}`}
+                            variant="outlined"
+                            sx={{ height: 20, fontSize: '0.72rem' }}
+                          />
+                          <Typography variant="body2" fontWeight="medium">
+                            {task.text}
+                          </Typography>
+                        </Stack>
+                      }
+                    />
+                    <Chip
+                      size="small"
+                      color={task.done ? 'success' : 'default'}
+                      label={task.done ? 'Selesai' : 'Belum selesai'}
+                      variant="filled"
+                      sx={{ height: 22, fontSize: '0.72rem' }}
+                    />
+                  </ListItem>
+                ))}
+              </List>
+            )}
           </Paper>
         </Stack>
       </CardContent>
