@@ -36,6 +36,7 @@ import ShieldIcon from '@mui/icons-material/Shield'
 import ExtensionIcon from '@mui/icons-material/Extension'
 import StorageIcon from '@mui/icons-material/Storage'
 import BuildIcon from '@mui/icons-material/Build'
+import BoltIcon from '@mui/icons-material/Bolt'
 
 import { darkTheme } from './theme'
 import Materi01 from './Materi/01-komponen-dan-props'
@@ -54,6 +55,7 @@ import Materi13 from './Materi/13-hoc'
 import Materi14 from './Materi/14-optimasi-performa'
 import Materi15 from './Materi/15-redux-core'
 import Materi16 from './Materi/16-redux-toolkit'
+import Materi17 from './Materi/17-zustand'
 
 const daftarMateri = [
   {
@@ -231,6 +233,17 @@ const daftarMateri = [
     icon: <BuildIcon fontSize="medium" />,
     color: '#764abc',
     component: Materi16,
+  },
+  {
+    id: '17',
+    nama: '17 Zustand',
+    judul: 'Zustand',
+    deskripsi:
+      'Alternatif ringan untuk Redux: store sebagai Hook, aksi, selector, dan state turunan.',
+    tags: ['Zustand', 'State', 'Store', 'Selector'],
+    icon: <BoltIcon fontSize="medium" />,
+    color: '#f97316',
+    component: Materi17,
   },
 ]
 
