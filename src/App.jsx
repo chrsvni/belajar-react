@@ -34,6 +34,8 @@ import FunctionsIcon from '@mui/icons-material/Functions'
 import SpeedIcon from '@mui/icons-material/Speed'
 import ShieldIcon from '@mui/icons-material/Shield'
 import ExtensionIcon from '@mui/icons-material/Extension'
+import StorageIcon from '@mui/icons-material/Storage'
+import BuildIcon from '@mui/icons-material/Build'
 
 import { darkTheme } from './theme'
 import Materi01 from './Materi/01-komponen-dan-props'
@@ -50,6 +52,8 @@ import Materi11 from './Materi/11-use-callback'
 import Materi12 from './Materi/12-error-boundary'
 import Materi13 from './Materi/13-hoc'
 import Materi14 from './Materi/14-optimasi-performa'
+import Materi15 from './Materi/15-redux-core'
+import Materi16 from './Materi/16-redux-toolkit'
 
 const daftarMateri = [
   {
@@ -205,6 +209,28 @@ const daftarMateri = [
     icon: <SpeedIcon fontSize="medium" />,
     color: '#f59e0b',
     component: Materi14,
+  },
+  {
+    id: '15',
+    nama: '15 Redux (Core Concepts)',
+    judul: 'Redux (Core Concepts)',
+    deskripsi:
+      'Redux murni tanpa Toolkit: action, reducer, store, dan middleware (Redux Thunk) ditulis manual dengan contoh Pokémon.',
+    tags: ['Action', 'Reducer', 'Thunk'],
+    icon: <StorageIcon fontSize="medium" />,
+    color: '#0ea5e9',
+    component: Materi15,
+  },
+  {
+    id: '16',
+    nama: '16 Redux Toolkit (RTK)',
+    judul: 'Redux Toolkit (RTK)',
+    deskripsi:
+      'Menyederhanakan Redux dengan createSlice, createAsyncThunk, dan configureStore pada contoh Pokémon yang sama.',
+    tags: ['createSlice', 'createAsyncThunk', 'RTK'],
+    icon: <BuildIcon fontSize="medium" />,
+    color: '#764abc',
+    component: Materi16,
   },
 ]
 
