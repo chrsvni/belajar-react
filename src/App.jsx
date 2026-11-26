@@ -56,6 +56,7 @@ import Materi14 from './Materi/14-optimasi-performa'
 import Materi15 from './Materi/15-redux-core'
 import Materi16 from './Materi/16-redux-toolkit'
 import Materi17 from './Materi/17-zustand'
+import Materi18 from './Materi/18-server-state'
 
 const daftarMateri = [
   {
@@ -244,6 +245,17 @@ const daftarMateri = [
     icon: <BoltIcon fontSize="medium" />,
     color: '#f97316',
     component: Materi17,
+  },
+  {
+    id: '18',
+    nama: '18 Server State',
+    judul: 'Server State (SWR, React Query)',
+    deskripsi:
+      'Mengelola pengambilan dan cache data asinkron dengan SWR dan TanStack Query.',
+    tags: ['SWR', 'React Query', 'Cache', 'Fetching'],
+    icon: <SyncIcon fontSize="medium" />,
+    color: '#10b981',
+    component: Materi18,
   },
 ]
 
