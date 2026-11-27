@@ -38,6 +38,7 @@ import StorageIcon from '@mui/icons-material/Storage'
 import BuildIcon from '@mui/icons-material/Build'
 import BoltIcon from '@mui/icons-material/Bolt'
 import ScienceIcon from '@mui/icons-material/Science'
+import IntegrationInstructionsIcon from '@mui/icons-material/IntegrationInstructions'
 
 import { darkTheme } from './theme'
 import Materi01 from './Materi/01-komponen-dan-props'
@@ -59,6 +60,7 @@ import Materi16 from './Materi/16-redux-toolkit'
 import Materi17 from './Materi/17-zustand'
 import Materi18 from './Materi/18-server-state'
 import Materi19 from './Materi/19-testing'
+import Materi20 from './Materi/20-typescript-react'
 
 const daftarMateri = [
   {
@@ -270,13 +272,23 @@ const daftarMateri = [
     color: '#f97316',
     component: Materi19,
   },
+  {
+    id: '20',
+    nama: '20 TypeScript in React',
+    judul: 'TypeScript in React',
+    deskripsi:
+      'Mempelajari integrasi TypeScript pada React: interface props, union types, event typing, useReducer discriminated union, dan generic component.',
+    tags: ['TypeScript', 'Interface', 'Generics', 'React19'],
+    icon: <IntegrationInstructionsIcon fontSize="medium" />,
+    color: '#3178c6',
+    component: Materi20,
+  },
 ]
 
 export default function App() {
   const [materiTerpilih, setMateriTerpilih] = useState(null)
   const [pencarian, setPencarian] = useState('')
 
-  // Filter modul berdasarkan pencarian
   const modulTampil = daftarMateri.filter((m) => {
     const q = pencarian.toLowerCase()
     return (
