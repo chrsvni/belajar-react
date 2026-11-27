@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`mengubah class saat di-hover 1`] = `
+<DocumentFragment>
+  <a
+    class="normal"
+    href="http://www.facebook.com"
+  >
+    Facebook
+  </a>
+</DocumentFragment>
+`;
+
+exports[`mengubah class saat di-hover 2`] = `
+<DocumentFragment>
+  <a
+    class="hovered"
+    href="http://www.facebook.com"
+  >
+    Facebook
+  </a>
+</DocumentFragment>
+`;

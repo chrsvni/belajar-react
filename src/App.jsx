@@ -37,6 +37,7 @@ import ExtensionIcon from '@mui/icons-material/Extension'
 import StorageIcon from '@mui/icons-material/Storage'
 import BuildIcon from '@mui/icons-material/Build'
 import BoltIcon from '@mui/icons-material/Bolt'
+import ScienceIcon from '@mui/icons-material/Science'
 
 import { darkTheme } from './theme'
 import Materi01 from './Materi/01-komponen-dan-props'
@@ -57,6 +58,7 @@ import Materi15 from './Materi/15-redux-core'
 import Materi16 from './Materi/16-redux-toolkit'
 import Materi17 from './Materi/17-zustand'
 import Materi18 from './Materi/18-server-state'
+import Materi19 from './Materi/19-testing'
 
 const daftarMateri = [
   {
@@ -256,6 +258,17 @@ const daftarMateri = [
     icon: <SyncIcon fontSize="medium" />,
     color: '#10b981',
     component: Materi18,
+  },
+  {
+    id: '19',
+    nama: '19 Testing',
+    judul: 'Testing (Jest & RTL)',
+    deskripsi:
+      'Menulis unit test dan integration test untuk komponen dengan Jest dan React Testing Library: query, user-event, mock function, dan snapshot.',
+    tags: ['Jest', 'RTL', 'Snapshot'],
+    icon: <ScienceIcon fontSize="medium" />,
+    color: '#f97316',
+    component: Materi19,
   },
 ]
 
